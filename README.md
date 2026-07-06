@@ -1,147 +1,82 @@
 # Embodied AI 学习与项目实践仓库
 
-本仓库用于记录我在具身智能、机器人学习、强化学习和视觉-语言-动作模型方向的学习过程与项目实践。
+## 1. 仓库定位
 
-当前阶段的目标是完成从基础环境配置到强化学习机器人任务复现的完整流程，为后续具身智能相关项目和求职准备打基础。
+本仓库用于系统学习和实践具身智能、机器人强化学习、模仿学习、动作生成与视觉-语言-动作模型。当前路线以三个主项目为核心，同时保留基础练习、环境测试、前沿笔记以及简历和面试材料。
 
-## 仓库目标
+仓库运行环境为 WSL Ubuntu 24.04，Python 相关任务统一使用 Conda 环境 `embodied-ppo`。
 
-本仓库主要用于：
+## 2. 5 周计划总览
 
-1. 记录 Git、GitHub、Linux、WSL、VS Code 等基础开发环境配置过程；
-2. 学习 PyTorch 深度学习基础；
-3. 学习 Gymnasium Robotics 机器人仿真环境；
-4. 复现基于强化学习的机器人控制任务；
-5. 整理具身智能相关学习笔记与项目代码；
-6. 为后续简历项目、面试准备和项目展示积累材料。
+| 周次 | 重点 | 计划产出 |
+| --- | --- | --- |
+| 第 1 周 | PyTorch、Gymnasium / MuJoCo 与 PPO 热身 | 完成基础练习、环境验证和 `ppo-fetchreach/` 热身流程 |
+| 第 2 周 | MuJoCo Playground + PPO 四足 locomotion | 建立主项目 1 的环境、训练与评估骨架 |
+| 第 3 周 | LeRobot + BC + ACT | 建立主项目 2 的数据、baseline 与 ACT 流程 |
+| 第 4 周 | Diffusion Policy / robomimic | 建立主项目 3，并规划 BC 与 Diffusion Policy 对比 |
+| 第 5 周 | VLA 连接、项目整理与求职材料 | 完善前沿笔记、报告、展示材料和面试讲稿 |
 
-## 仓库结构
+以上为计划安排，具体实验结果以实际完成并保存的日志、图表和评估记录为准。
+
+## 3. 项目优先级
+
+1. `mujoco-quadruped-ppo/`：主项目 1，MuJoCo Playground + PPO 四足机器人 locomotion。
+2. `lerobot-act/`：主项目 2，LeRobot + Behavior Cloning + ACT 模仿学习。
+3. `diffusion-policy/`：主项目 3，Diffusion Policy / robomimic 机器人动作生成。
+4. `vla-foundation-model-notes/`：VLA 前沿连接材料，用于串联 PPO、ACT、Diffusion Policy 与 VLA action head。
+5. `resume-materials/`：简历 bullet、项目讲稿、面试问答和 GitHub 发布检查材料。
+
+`ppo-fetchreach/` 是 PPO 热身项目，用于熟悉流程，不作为最终主简历项目。
+
+## 4. 目录说明
 
 ```text
 embodied-ai/
-├── README.md
 ├── day1-git-linux/
 ├── pytorch-basics/
-├── gymnasium-robotics/
 ├── ppo-fetchreach/
-└── notes/
+├── mujoco-quadruped-ppo/
+├── lerobot-act/
+├── diffusion-policy/
+├── vla-foundation-model-notes/
+├── resume-materials/
+├── gymnasium-robotics/
+├── notes/
+├── .vscode/
+├── AGENTS.md
+└── README.md
 ```
 
-## 目录说明
+- `day1-git-linux/`：Git、GitHub、Linux、WSL 和 VS Code 基础记录。
+- `pytorch-basics/`：PyTorch 基础练习；保留当前已有的 `tensor.py`，不移动或删除。
+- `ppo-fetchreach/`：PPO 热身项目，不作为最终主简历项目。
+- `mujoco-quadruped-ppo/`：主项目 1，四足机器人强化学习 locomotion。
+- `lerobot-act/`：主项目 2，机器人模仿学习与动作分块策略。
+- `diffusion-policy/`：主项目 3，生成式机器人动作策略及 baseline 对比。
+- `vla-foundation-model-notes/`：OpenVLA、RT-2、pi0、RDT、GR-1、GR00T 等 VLA / Robot Foundation Model 技术路线笔记。
+- `resume-materials/`：简历和面试材料目录。
+- `gymnasium-robotics/`：暂时保留，作为 Gymnasium / MuJoCo 环境测试目录。
+- `notes/`：通用学习笔记、调试记录和论文阅读记录。
+- `.vscode/`：仓库级 VS Code 配置。
+- `AGENTS.md`：Codex 仓库操作规则。
 
-### day1-git-linux
+## 5. 当前进度
 
-用于记录第一阶段的基础环境配置内容，包括：
+- [x] 建立基础学习仓库和 Git 工作流。
+- [x] 配置 WSL、VS Code 与 Conda 开发环境。
+- [x] 建立三个主项目的目录与文档模板。
+- [x] 建立 VLA 前沿笔记和求职材料目录。
+- [ ] 完成 PyTorch 基础练习与环境测试。
+- [ ] 完成 PPO FetchReach 热身项目。
+- [ ] 开始主项目 1 的环境验证与任务定义。
+- [ ] 完成主项目 2、主项目 3 的真实训练与评估。
+- [ ] 根据真实实验补充结果、视频、图表和结论。
 
-- Git 安装与配置
-- GitHub 账户与 SSH 配置
-- 本地仓库创建
-- 远程仓库推送
-- Ubuntu / WSL 基础命令
-- VS Code 与 WSL 的配合使用
+## 6. 后续计划
 
-### pytorch-basics
-
-用于存放 PyTorch 基础练习代码，包括：
-
-- Tensor 基础操作
-- 自动求导
-- 神经网络模块
-- 数据加载
-- 模型训练流程
-- 简单深度学习模型复现
-
-### gymnasium-robotics
-
-用于存放 Gymnasium Robotics 相关实验，包括：
-
-- 机器人仿真环境安装测试
-- FetchReach 环境运行
-- observation、action space 理解
-- reward 和 goal-based task 理解
-- MuJoCo / Gymnasium Robotics 基础实验
-
-### ppo-fetchreach
-
-用于存放 PPO 强化学习项目代码，目标是复现一个基于 PPO 的 FetchReach 机器人控制任务。
-
-计划内容包括：
-
-- 环境封装
-- PPO 算法调用
-- 训练脚本
-- 评估脚本
-- TensorBoard 可视化
-- 实验结果记录
-- 项目总结文档
-
-### notes
-
-用于存放学习笔记，包括：
-
-- Linux 命令笔记
-- Git / GitHub 笔记
-- PyTorch 笔记
-- 强化学习笔记
-- MuJoCo / Gymnasium Robotics 笔记
-- 具身智能论文与课程笔记
-
-## 当前进度
-
-- [x] 创建 GitHub 账户
-- [x] 配置本地 Git 用户名和邮箱
-- [x] 配置 SSH 并成功连接 GitHub
-- [x] 创建本地总仓库 `embodied-ai`
-- [x] 初始化 Git 仓库
-- [x] 创建基础目录结构
-- [x] 完成第一次 commit
-- [x] 推送到 GitHub 远程仓库
-- [ ] 补充 Day 1 学习笔记
-- [ ] 配置 Python 项目环境
-- [ ] 学习 PyTorch 基础
-- [ ] 测试 Gymnasium Robotics 环境
-- [ ] 开始 PPO FetchReach 项目复现
-
-## 后续计划
-
-### 第一阶段：开发环境与 Git 基础
-
-完成 Linux / WSL / VS Code / GitHub 的基础工作流，熟悉本地开发与远程仓库同步流程。
-
-### 第二阶段：PyTorch 基础
-
-学习 Tensor、自动求导、神经网络搭建和训练流程，为后续强化学习和机器人控制项目打基础。
-
-### 第三阶段：Gymnasium Robotics 与 MuJoCo
-
-熟悉机器人仿真环境，理解 observation、action、reward、goal 等强化学习任务要素。
-
-### 第四阶段：PPO FetchReach 项目复现
-
-使用 Stable-Baselines3 或自定义训练脚本，在 FetchReach 环境中训练 PPO 智能体，并记录实验结果。
-
-### 第五阶段：项目总结与简历整理
-
-将项目过程整理成可展示的 GitHub 项目，包括代码结构、实验结果、训练曲线、问题总结和项目说明。
-
-## 技术栈
-
-计划涉及的技术包括：
-
-- Ubuntu / WSL2
-- Git / GitHub
-- VS Code
-- Python
-- Conda
-- PyTorch
-- Gymnasium
-- Gymnasium Robotics
-- MuJoCo
-- Stable-Baselines3
-- TensorBoard
-- Reinforcement Learning
-- PPO
-
-## 备注
-
-本仓库是一个持续更新的学习型仓库，重点不只是保存代码，也包括记录环境配置、调试过程、问题解决方法和阶段性学习总结。
+1. 先验证 `embodied-ppo` 环境和 Gymnasium / MuJoCo 最小运行流程。
+2. 完成 `ppo-fetchreach/` 热身，熟悉 PPO 训练、评估和日志记录。
+3. 优先推进 `mujoco-quadruped-ppo/`，确定任务、奖励和评估协议。
+4. 依次推进 `lerobot-act/` 与 `diffusion-policy/`，建立统一、可复现的 baseline 对比。
+5. 持续整理 VLA 技术路线，并将真实项目证据同步到 `resume-materials/`。
+6. 对外发布前检查环境说明、许可、大文件、敏感信息和实验可复现性。
