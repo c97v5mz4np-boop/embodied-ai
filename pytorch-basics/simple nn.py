@@ -1,0 +1,34 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# Distance in miles
+distances = torch.tensor([[1.0], [2.0], [3.0], [4.0]], dtype=torch.float32)
+# Delivery times in minutes
+times = torch.tensor([[6.96], [12.11], [16.77], [22.21]], dtype=torch.float32)
+
+model = nn.Sequential(nn.Linear(1, 1))
+loss_function = nn.MSELoss()
+optimizer = optim.SGD(model.parameters(), lr = 0.01)
+
+# Training loop
+for epoch in range(500):
+    # 0. Reset the optimizer
+    optimizer.zero_grad()
+
+    # 1. Make predictions
+    outputs = model(distances)
+
+    # 2. Calculate the loss - how bad was this guess?
+    loss = loss_function(outputs, times)
+
+    # 3. Calculate adjustments
+    loss.backward()
+
+    # 4. Update the model
+    optimizer.step()
+
+with torch.no_grad():
+    test_distance = torch.tensor([[25.0]], dtype=torch.float32)
+    predicted_time = model(test_distance)
+    print(f"Predicted time for 25 miles: {predicted_time.item():.1f} minutes")
